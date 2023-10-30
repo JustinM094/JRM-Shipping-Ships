@@ -9,6 +9,7 @@ export const DisplayDocks = () => {
       setAllDocks(docks);
     });
   }, []);
+
   return (
     <>
       <section>
@@ -18,6 +19,12 @@ export const DisplayDocks = () => {
             <div key={dock.id}>
               <p>Dock Location: {dock.location}</p>
               <p>Tonnage Capacity: {dock.capacity}</p>
+              <ul>
+                Haulers:
+                {dock.haulers.map((hauler) => (
+                  <li key={hauler.id}>{hauler.name}</li>
+                ))}
+              </ul>
             </div>
           );
         })}
